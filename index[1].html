@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sales & Revenue Analysis Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<style>
+  :root{
+    --bg:#0A0E17;
+    --panel:rgba(255,255,255,0.045);
+    --panel-border:rgba(255,255,255,0.09);
+    --text:#E7EBF3;
+    --muted:#8791A8;
+    --indigo:#6C7CFF;
+    --cyan:#33D9E8;
+    --emerald:#3ADD9A;
+    --amber:#FFB454;
+    --rose:#FF6B81;
+    --grad: linear-gradient(120deg, var(--indigo), var(--cyan));
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 600px at 85% -10%, rgba(108,124,255,0.20), transparent 60%),
+      radial-gradient(900px 500px at 5% 10%, rgba(51,217,232,0.12), transparent 55%),
+      var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    min-height:100vh;
+    padding:36px 28px 60px;
+  }
+  .wrap{max-width:1280px; margin:0 auto;}
+  header{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    flex-wrap:wrap; gap:18px; margin-bottom:32px;
+  }
+  .title-block h1{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:clamp(26px,3.4vw,38px);
+    font-weight:700;
+    letter-spacing:-0.02em;
+  }
+  .title-block p{color:var(--muted); margin-top:6px; font-size:14.5px; max-width:520px;}
+  .live-tag{
+    display:flex; align-items:center; gap:8px;
+    background:var(--panel); border:1px solid var(--panel-border);
+    padding:8px 14px; border-radius:999px; font-size:13px; color:var(--muted);
+    backdrop-filter:blur(10px);
+  }
+  .live-dot{width:7px; height:7px; border-radius:50%; background:var(--emerald); box-shadow:0 0 0 0 rgba(58,221,154,0.6); animation:pulse 2s infinite;}
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(58,221,154,0.5);}
+    70%{box-shadow:0 0 0 8px rgba(58,221,154,0);}
+    100%{box-shadow:0 0 0 0 rgba(58,221,154,0);}
+  }
+
+  .filters{
+    display:flex; flex-wrap:wrap; gap:12px; margin-bottom:28px;
+    background:var(--panel); border:1px solid var(--panel-border);
+    border-radius:16px; padding:16px 18px; backdrop-filter:blur(14px);
+  }
+  .filter-group{display:flex; flex-direction:column; gap:6px; min-width:160px;}
+  .filter-group label{font-size:11.5px; color:var(--muted); font-weight:500;}
+  select, input[type=range]{
+    background:rgba(255,255,255,0.06); border:1px solid var(--panel-border);
+    color:var(--text); border-radius:9px; padding:8px 10px; font-size:13.5px;
+    font-family:inherit; outline:none;
+  }
+  select:focus, button:focus-visible{outline:2px solid var(--cyan); outline-offset:2px;}
+  .reset-btn{
+    align-self:flex-end; background:transparent; border:1px solid var(--panel-border);
+    color:var(--muted); border-radius:9px; padding:9px 16px; font-size:13px;
+    cursor:pointer; transition:.2s; font-family:inherit;
+  }
+  .reset-btn:hover{color:var(--text); border-color:var(--cyan);}
+
+  .kpi-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:24px;
+  }
+  .kpi{
+    background:var(--panel); border:1px solid var(--panel-border);
+    border-radius:16px; padding:20px; backdrop-filter:blur(14px);
+    position:relative; overflow:hidden;
+  }
+  .kpi::before{
+    content:''; position:absolute; inset:0; opacity:0; transition:.3s;
+    background:var(--grad);
+  }
+  .kpi-label{font-size:12.5px; color:var(--muted); font-weight:500;}
+  .kpi-value{
+    font-family:'Space Grotesk',sans-serif; font-size:28px; font-weight:700;
+    margin-top:8px; letter-spacing:-0.01em;
+  }
+  .kpi-delta{font-size:12.5px; margin-top:6px; display:flex; align-items:center; gap:4px;}
+  .up{color:var(--emerald);} .down{color:var(--rose);}
+
+  .charts-row{display:grid; grid-template-columns:1.6fr 1fr; gap:16px; margin-bottom:16px;}
+  .panel{
+    background:var(--panel); border:1px solid var(--panel-border);
+    border-radius:16px; padding:22px; backdrop-filter:blur(14px);
+  }
+  .panel h2{font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; margin-bottom:2px;}
+  .panel .sub{color:var(--muted); font-size:12.5px; margin-bottom:16px;}
+  .chart-box{position:relative; height:280px;}
+
+  .bottom-row{display:grid; grid-template-columns:1fr 1.4fr; gap:16px;}
+  table{width:100%; border-collapse:collapse; font-size:13px;}
+  thead th{
+    text-align:left; color:var(--muted); font-weight:500; font-size:11.5px;
+    padding:8px 10px; border-bottom:1px solid var(--panel-border);
+  }
+  tbody td{padding:9px 10px; border-bottom:1px solid rgba(255,255,255,0.04);}
+  tbody tr:hover{background:rgba(255,255,255,0.03);}
+  .tbl-wrap{max-height:280px; overflow-y:auto;}
+  .pill{
+    display:inline-block; padding:2px 9px; border-radius:999px; font-size:11px; font-weight:600;
+  }
+  footer{text-align:center; color:var(--muted); font-size:12px; margin-top:36px;}
+
+  @media (max-width:900px){
+    .kpi-grid{grid-template-columns:repeat(2,1fr);}
+    .charts-row, .bottom-row{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="title-block">
+      <h1>Sales & Revenue Analysis</h1>
+      <p>Interactive view of sales performance, revenue trends, and top-performing products across regions.</p>
+    </div>
+    <div class="live-tag"><span class="live-dot"></span>Dataset synced — 180 orders</div>
+  </header>
+
+  <div class="filters">
+    <div class="filter-group">
+      <label for="fRegion">Region</label>
+      <select id="fRegion"><option value="all">All regions</option></select>
+    </div>
+    <div class="filter-group">
+      <label for="fCategory">Category</label>
+      <select id="fCategory"><option value="all">All categories</option></select>
+    </div>
+    <div class="filter-group">
+      <label for="fMonth">Month range: <span id="monthLabel"></span></label>
+      <input type="range" id="fMonth" min="0" max="11" value="11">
+    </div>
+    <button class="reset-btn" id="resetBtn">Reset filters</button>
+  </div>
+
+  <div class="kpi-grid" id="kpiGrid"></div>
+
+  <div class="charts-row">
+    <div class="panel">
+      <h2>Revenue Trend</h2>
+      <div class="sub">Monthly revenue for the filtered selection</div>
+      <div class="chart-box"><canvas id="trendChart"></canvas></div>
+    </div>
+    <div class="panel">
+      <h2>Revenue by Category</h2>
+      <div class="sub">Share of total revenue</div>
+      <div class="chart-box"><canvas id="categoryChart"></canvas></div>
+    </div>
+  </div>
+
+  <div class="bottom-row">
+    <div class="panel">
+      <h2>Top Products</h2>
+      <div class="sub">Ranked by revenue</div>
+      <div class="chart-box" style="height:260px"><canvas id="topProductsChart"></canvas></div>
+    </div>
+    <div class="panel">
+      <h2>Order Detail</h2>
+      <div class="sub">Filtered transaction records</div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Date</th><th>Product</th><th>Region</th><th>Units</th><th>Revenue</th></tr></thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <footer>Sales & Revenue Analysis Dashboard — built for Thiranex Data Analyst internship task</footer>
+</div>
+
+<script>
+const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const REGIONS=['North','South','East','West'];
+const PRODUCTS=[
+  {name:'AuroraBook Pro 14', cat:'Electronics', base:68000},
+  {name:'Zenith Wireless Earbuds', cat:'Electronics', base:3200},
+  {name:'Nimbus Office Chair', cat:'Furniture', base:9800},
+  {name:'Solace Desk Lamp', cat:'Furniture', base:1500},
+  {name:'Cascade Running Shoes', cat:'Apparel', base:2800},
+  {name:'Voyage Backpack 30L', cat:'Apparel', base:2200},
+  {name:'Pulse Smartwatch', cat:'Electronics', base:11500},
+  {name:'Terra Ceramic Mug Set', cat:'Home', base:900},
+  {name:'Lumen LED Panel', cat:'Home', base:2600},
+  {name:'Orbit Bluetooth Speaker', cat:'Electronics', base:4200}
+];
+
+function seededRandom(seed){let s=seed; return ()=>{s=(s*9301+49297)%233280; return s/233280;};}
+const rand=seededRandom(42);
+
+const data=[];
+let id=1;
+for(let m=0;m<12;m++){
+  const ordersThisMonth=12+Math.floor(rand()*6);
+  for(let o=0;o<ordersThisMonth;o++){
+    const p=PRODUCTS[Math.floor(rand()*PRODUCTS.length)];
+    const region=REGIONS[Math.floor(rand()*REGIONS.length)];
+    const units=1+Math.floor(rand()*6);
+    const seasonality=1+0.25*Math.sin((m/11)*Math.PI*2);
+    const revenue=Math.round(p.base*units*seasonality*(0.85+rand()*0.3));
+    const day=1+Math.floor(rand()*27);
+    data.push({
+      id:id++, month:m, date:`2026-${String(m+1).padStart(2,'0')}-${String(day).padStart(2,'0')}`,
+      product:p.name, category:p.cat, region, units, revenue
+    });
+  }
+}
+
+const catColors={Electronics:'#6C7CFF', Furniture:'#33D9E8', Apparel:'#FFB454', Home:'#3ADD9A'};
+
+const fRegion=document.getElementById('fRegion');
+const fCategory=document.getElementById('fCategory');
+const fMonth=document.getElementById('fMonth');
+const monthLabel=document.getElementById('monthLabel');
+
+REGIONS.forEach(r=>{const o=document.createElement('option'); o.value=r; o.textContent=r; fRegion.appendChild(o);});
+[...new Set(PRODUCTS.map(p=>p.cat))].forEach(c=>{const o=document.createElement('option'); o.value=c; o.textContent=c; fCategory.appendChild(o);});
+
+let trendChart, categoryChart, topProductsChart;
+
+function getFiltered(){
+  const region=fRegion.value, category=fCategory.value, upToMonth=parseInt(fMonth.value);
+  return data.filter(d=>
+    (region==='all'||d.region===region) &&
+    (category==='all'||d.category===category) &&
+    d.month<=upToMonth
+  );
+}
+
+function fmtCurrency(n){return '₹'+n.toLocaleString('en-IN');}
+
+function render(){
+  const filtered=getFiltered();
+  const upToMonth=parseInt(fMonth.value);
+  monthLabel.textContent=`Jan – ${MONTHS[upToMonth]}`;
+
+  const totalRevenue=filtered.reduce((s,d)=>s+d.revenue,0);
+  const totalUnits=filtered.reduce((s,d)=>s+d.units,0);
+  const avgOrder=filtered.length?Math.round(totalRevenue/filtered.length):0;
+  const topCat=Object.entries(filtered.reduce((acc,d)=>{acc[d.category]=(acc[d.category]||0)+d.revenue; return acc;},{}))
+    .sort((a,b)=>b[1]-a[1])[0];
+
+  document.getElementById('kpiGrid').innerHTML=`
+    <div class="kpi"><div class="kpi-label">Total Revenue</div><div class="kpi-value">${fmtCurrency(totalRevenue)}</div><div class="kpi-delta up">▲ across ${filtered.length} orders</div></div>
+    <div class="kpi"><div class="kpi-label">Units Sold</div><div class="kpi-value">${totalUnits.toLocaleString('en-IN')}</div><div class="kpi-delta up">▲ ${PRODUCTS.length} products tracked</div></div>
+    <div class="kpi"><div class="kpi-label">Avg Order Value</div><div class="kpi-value">${fmtCurrency(avgOrder)}</div><div class="kpi-delta">across ${REGIONS.length} regions</div></div>
+    <div class="kpi"><div class="kpi-label">Leading Category</div><div class="kpi-value" style="font-size:22px">${topCat?topCat[0]:'—'}</div><div class="kpi-delta up">${topCat?fmtCurrency(topCat[1]):''}</div></div>
+  `;
+
+  const monthly=Array(upToMonth+1).fill(0);
+  filtered.forEach(d=>monthly[d.month]+=d.revenue);
+  const trendCtx=document.getElementById('trendChart');
+  if(trendChart) trendChart.destroy();
+  trendChart=new Chart(trendCtx,{
+    type:'line',
+    data:{labels:MONTHS.slice(0,upToMonth+1), datasets:[{
+      data:monthly, borderColor:'#33D9E8', borderWidth:2.5, tension:0.35,
+      pointRadius:0, pointHoverRadius:5, pointBackgroundColor:'#33D9E8',
+      fill:true,
+      backgroundColor:(ctx)=>{
+        const g=ctx.chart.ctx.createLinearGradient(0,0,0,260);
+        g.addColorStop(0,'rgba(51,217,232,0.28)'); g.addColorStop(1,'rgba(51,217,232,0)');
+        return g;
+      }
+    }]},
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{legend:{display:false}, tooltip:{callbacks:{label:c=>fmtCurrency(c.raw)}}},
+      scales:{
+        x:{grid:{display:false}, ticks:{color:'#8791A8', font:{size:11}}},
+        y:{grid:{color:'rgba(255,255,255,0.06)'}, ticks:{color:'#8791A8', font:{size:11}, callback:v=>'₹'+(v/1000)+'k'}}
+      }
+    }
+  });
+
+  const byCat=filtered.reduce((acc,d)=>{acc[d.category]=(acc[d.category]||0)+d.revenue; return acc;},{});
+  const catCtx=document.getElementById('categoryChart');
+  if(categoryChart) categoryChart.destroy();
+  categoryChart=new Chart(catCtx,{
+    type:'doughnut',
+    data:{labels:Object.keys(byCat), datasets:[{
+      data:Object.values(byCat),
+      backgroundColor:Object.keys(byCat).map(c=>catColors[c]),
+      borderColor:'#0A0E17', borderWidth:3
+    }]},
+    options:{
+      responsive:true, maintainAspectRatio:false, cutout:'68%',
+      plugins:{legend:{position:'bottom', labels:{color:'#8791A8', font:{size:11.5}, padding:14, usePointStyle:true, pointStyle:'circle'}},
+      tooltip:{callbacks:{label:c=>c.label+': '+fmtCurrency(c.raw)}}}
+    }
+  });
+
+  const byProduct=filtered.reduce((acc,d)=>{acc[d.product]=(acc[d.product]||0)+d.revenue; return acc;},{});
+  const topEntries=Object.entries(byProduct).sort((a,b)=>b[1]-a[1]).slice(0,6);
+  const topCtx=document.getElementById('topProductsChart');
+  if(topProductsChart) topProductsChart.destroy();
+  topProductsChart=new Chart(topCtx,{
+    type:'bar',
+    data:{labels:topEntries.map(e=>e[0]), datasets:[{
+      data:topEntries.map(e=>e[1]),
+      backgroundColor:'#6C7CFF', borderRadius:6, maxBarThickness:22
+    }]},
+    options:{
+      indexAxis:'y', responsive:true, maintainAspectRatio:false,
+      plugins:{legend:{display:false}, tooltip:{callbacks:{label:c=>fmtCurrency(c.raw)}}},
+      scales:{
+        x:{grid:{color:'rgba(255,255,255,0.06)'}, ticks:{color:'#8791A8', font:{size:10.5}, callback:v=>'₹'+(v/1000)+'k'}},
+        y:{grid:{display:false}, ticks:{color:'#E7EBF3', font:{size:11.5}}}
+      }
+    }
+  });
+
+  const tbody=document.getElementById('tableBody');
+  const recent=[...filtered].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,40);
+  tbody.innerHTML=recent.map(d=>`
+    <tr>
+      <td>${d.date}</td>
+      <td>${d.product}</td>
+      <td>${d.region}</td>
+      <td>${d.units}</td>
+      <td><span class="pill" style="background:${catColors[d.category]}22; color:${catColors[d.category]}">${fmtCurrency(d.revenue)}</span></td>
+    </tr>
+  `).join('');
+}
+
+[fRegion,fCategory,fMonth].forEach(el=>el.addEventListener('input',render));
+document.getElementById('resetBtn').addEventListener('click',()=>{
+  fRegion.value='all'; fCategory.value='all'; fMonth.value=11; render();
+});
+
+render();
+</script>
+</body>
+</html>

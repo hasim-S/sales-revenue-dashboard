@@ -1,0 +1,174 @@
+Order_ID,Date,Product,Category,Region,Units_Sold,Revenue
+ORD0001,2026-01-08,Zenith Wireless Earbuds,Electronics,North,6,17904
+ORD0002,2026-01-18,Nimbus Office Chair,Furniture,North,6,63045
+ORD0003,2026-01-07,Zenith Wireless Earbuds,Electronics,West,1,2749
+ORD0004,2026-01-21,Solace Desk Lamp,Furniture,North,5,6822
+ORD0005,2026-01-09,Lumen LED Panel,Home,West,2,5121
+ORD0006,2026-01-09,AuroraBook Pro 14,Electronics,South,6,398528
+ORD0007,2026-01-13,Nimbus Office Chair,Furniture,South,3,25891
+ORD0008,2026-01-26,Zenith Wireless Earbuds,Electronics,East,3,9899
+ORD0009,2026-01-13,AuroraBook Pro 14,Electronics,West,5,301732
+ORD0010,2026-01-12,Zenith Wireless Earbuds,Electronics,East,6,19883
+ORD0011,2026-01-22,Orbit Bluetooth Speaker,Electronics,South,6,21946
+ORD0012,2026-01-04,Solace Desk Lamp,Furniture,East,1,1660
+ORD0013,2026-01-12,Pulse Smartwatch,Electronics,East,4,47872
+ORD0014,2026-01-09,Nimbus Office Chair,Furniture,East,3,26838
+ORD0015,2026-01-06,Zenith Wireless Earbuds,Electronics,South,5,17100
+ORD0016,2026-01-21,Terra Ceramic Mug Set,Home,West,3,3097
+ORD0017,2026-01-25,Lumen LED Panel,Home,South,6,14778
+ORD0018,2026-02-03,Solace Desk Lamp,Furniture,North,3,4957
+ORD0019,2026-02-13,Solace Desk Lamp,Furniture,East,2,3564
+ORD0020,2026-02-24,Terra Ceramic Mug Set,Home,South,3,2734
+ORD0021,2026-02-19,Lumen LED Panel,Home,East,6,18158
+ORD0022,2026-02-05,Pulse Smartwatch,Electronics,East,2,30004
+ORD0023,2026-02-04,Lumen LED Panel,Home,West,1,3178
+ORD0024,2026-02-03,Nimbus Office Chair,Furniture,South,6,65189
+ORD0025,2026-02-17,Pulse Smartwatch,Electronics,West,5,74987
+ORD0026,2026-02-22,Cascade Running Shoes,Apparel,North,6,20333
+ORD0027,2026-02-10,Lumen LED Panel,Home,East,6,16859
+ORD0028,2026-02-24,Pulse Smartwatch,Electronics,South,4,44436
+ORD0029,2026-02-21,Cascade Running Shoes,Apparel,South,5,17860
+ORD0030,2026-03-06,Lumen LED Panel,Home,South,2,6141
+ORD0031,2026-03-01,Lumen LED Panel,Home,North,5,15115
+ORD0032,2026-03-08,Zenith Wireless Earbuds,Electronics,East,3,10862
+ORD0033,2026-03-27,Orbit Bluetooth Speaker,Electronics,North,1,5514
+ORD0034,2026-03-18,Zenith Wireless Earbuds,Electronics,South,2,8232
+ORD0035,2026-03-14,Nimbus Office Chair,Furniture,East,5,66863
+ORD0036,2026-03-22,Solace Desk Lamp,Furniture,South,6,10423
+ORD0037,2026-03-08,Voyage Backpack 30L,Apparel,West,5,13305
+ORD0038,2026-03-18,Solace Desk Lamp,Furniture,North,3,4730
+ORD0039,2026-03-21,Solace Desk Lamp,Furniture,South,1,1604
+ORD0040,2026-03-11,AuroraBook Pro 14,Electronics,South,1,93615
+ORD0041,2026-03-07,Zenith Wireless Earbuds,Electronics,South,3,12380
+ORD0042,2026-03-19,Lumen LED Panel,Home,South,6,21649
+ORD0043,2026-03-26,Orbit Bluetooth Speaker,Electronics,West,2,11191
+ORD0044,2026-04-12,Solace Desk Lamp,Furniture,North,1,1960
+ORD0045,2026-04-02,Pulse Smartwatch,Electronics,West,4,63646
+ORD0046,2026-04-26,Zenith Wireless Earbuds,Electronics,North,4,17061
+ORD0047,2026-04-15,Zenith Wireless Earbuds,Electronics,South,2,7242
+ORD0048,2026-04-08,Nimbus Office Chair,Furniture,West,2,22826
+ORD0049,2026-04-21,Zenith Wireless Earbuds,Electronics,West,5,17552
+ORD0050,2026-04-08,Lumen LED Panel,Home,North,1,3658
+ORD0051,2026-04-13,Nimbus Office Chair,Furniture,West,4,48627
+ORD0052,2026-04-13,AuroraBook Pro 14,Electronics,South,4,288631
+ORD0053,2026-04-24,Cascade Running Shoes,Apparel,West,3,10237
+ORD0054,2026-04-07,Lumen LED Panel,Home,West,2,5883
+ORD0055,2026-04-02,AuroraBook Pro 14,Electronics,North,6,480501
+ORD0056,2026-04-17,Orbit Bluetooth Speaker,Electronics,West,5,29493
+ORD0057,2026-04-06,Nimbus Office Chair,Furniture,North,5,53426
+ORD0058,2026-04-13,Zenith Wireless Earbuds,Electronics,North,6,26551
+ORD0059,2026-05-20,Orbit Bluetooth Speaker,Electronics,South,5,25676
+ORD0060,2026-05-17,Zenith Wireless Earbuds,Electronics,West,6,23401
+ORD0061,2026-05-11,Voyage Backpack 30L,Apparel,East,2,5498
+ORD0062,2026-05-21,Solace Desk Lamp,Furniture,East,4,6344
+ORD0063,2026-05-03,Cascade Running Shoes,Apparel,West,3,11272
+ORD0064,2026-05-04,AuroraBook Pro 14,Electronics,West,5,464687
+ORD0065,2026-05-12,Zenith Wireless Earbuds,Electronics,South,5,17683
+ORD0066,2026-05-15,Zenith Wireless Earbuds,Electronics,South,3,10678
+ORD0067,2026-05-26,Lumen LED Panel,Home,East,5,17700
+ORD0068,2026-05-10,Lumen LED Panel,Home,North,6,20312
+ORD0069,2026-05-04,Zenith Wireless Earbuds,Electronics,South,3,10097
+ORD0070,2026-05-07,Lumen LED Panel,Home,South,3,8667
+ORD0071,2026-06-09,Voyage Backpack 30L,Apparel,South,6,14699
+ORD0072,2026-06-02,Lumen LED Panel,Home,West,3,9365
+ORD0073,2026-06-11,Zenith Wireless Earbuds,Electronics,West,3,8871
+ORD0074,2026-06-18,Nimbus Office Chair,Furniture,East,2,22499
+ORD0075,2026-06-23,Pulse Smartwatch,Electronics,North,1,10741
+ORD0076,2026-06-05,Nimbus Office Chair,Furniture,North,3,32250
+ORD0077,2026-06-26,Pulse Smartwatch,Electronics,South,1,11602
+ORD0078,2026-06-22,AuroraBook Pro 14,Electronics,East,2,153530
+ORD0079,2026-06-14,Zenith Wireless Earbuds,Electronics,East,5,19101
+ORD0080,2026-06-26,Orbit Bluetooth Speaker,Electronics,South,2,9975
+ORD0081,2026-06-11,Nimbus Office Chair,Furniture,West,1,9481
+ORD0082,2026-06-23,Pulse Smartwatch,Electronics,South,3,33154
+ORD0083,2026-06-08,Zenith Wireless Earbuds,Electronics,West,1,3794
+ORD0084,2026-06-26,Solace Desk Lamp,Furniture,West,3,4535
+ORD0085,2026-06-13,Solace Desk Lamp,Furniture,South,1,1683
+ORD0086,2026-06-09,Voyage Backpack 30L,Apparel,East,1,2685
+ORD0087,2026-06-18,Voyage Backpack 30L,Apparel,West,6,16169
+ORD0088,2026-07-09,AuroraBook Pro 14,Electronics,North,3,171346
+ORD0089,2026-07-24,AuroraBook Pro 14,Electronics,North,5,309848
+ORD0090,2026-07-04,Voyage Backpack 30L,Apparel,West,5,11711
+ORD0091,2026-07-14,Pulse Smartwatch,Electronics,South,3,27687
+ORD0092,2026-07-22,AuroraBook Pro 14,Electronics,South,3,185723
+ORD0093,2026-07-24,Voyage Backpack 30L,Apparel,East,6,13551
+ORD0094,2026-07-13,Cascade Running Shoes,Apparel,East,6,15188
+ORD0095,2026-07-13,Cascade Running Shoes,Apparel,South,2,5081
+ORD0096,2026-07-01,Nimbus Office Chair,Furniture,East,4,36963
+ORD0097,2026-07-19,Cascade Running Shoes,Apparel,East,2,5096
+ORD0098,2026-07-22,Orbit Bluetooth Speaker,Electronics,East,4,15344
+ORD0099,2026-07-03,Solace Desk Lamp,Furniture,West,6,7537
+ORD0100,2026-07-25,Cascade Running Shoes,Apparel,East,1,2851
+ORD0101,2026-07-05,Solace Desk Lamp,Furniture,East,2,3045
+ORD0102,2026-08-25,AuroraBook Pro 14,Electronics,South,4,227973
+ORD0103,2026-08-19,Zenith Wireless Earbuds,Electronics,West,4,11584
+ORD0104,2026-08-05,Solace Desk Lamp,Furniture,West,4,4720
+ORD0105,2026-08-26,AuroraBook Pro 14,Electronics,North,4,202001
+ORD0106,2026-08-04,Lumen LED Panel,Home,West,1,2145
+ORD0107,2026-08-18,Terra Ceramic Mug Set,Home,South,4,3067
+ORD0108,2026-08-24,Orbit Bluetooth Speaker,Electronics,East,4,14086
+ORD0109,2026-08-06,Lumen LED Panel,Home,West,5,10373
+ORD0110,2026-08-27,Terra Ceramic Mug Set,Home,West,3,2355
+ORD0111,2026-08-15,Cascade Running Shoes,Apparel,West,6,12560
+ORD0112,2026-08-11,Zenith Wireless Earbuds,Electronics,East,2,4835
+ORD0113,2026-08-13,Lumen LED Panel,Home,North,2,3776
+ORD0114,2026-09-11,Nimbus Office Chair,Furniture,South,1,7187
+ORD0115,2026-09-27,Lumen LED Panel,Home,West,4,6799
+ORD0116,2026-09-01,Pulse Smartwatch,Electronics,West,5,49062
+ORD0117,2026-09-12,Orbit Bluetooth Speaker,Electronics,West,4,10769
+ORD0118,2026-09-24,Cascade Running Shoes,Apparel,West,4,8525
+ORD0119,2026-09-14,Lumen LED Panel,Home,South,4,7168
+ORD0120,2026-09-22,Terra Ceramic Mug Set,Home,North,4,2576
+ORD0121,2026-09-20,Pulse Smartwatch,Electronics,South,4,38974
+ORD0122,2026-09-22,Lumen LED Panel,Home,North,4,8042
+ORD0123,2026-09-15,AuroraBook Pro 14,Electronics,North,6,300463
+ORD0124,2026-09-07,Nimbus Office Chair,Furniture,North,3,21322
+ORD0125,2026-09-13,Terra Ceramic Mug Set,Home,East,3,2191
+ORD0126,2026-09-16,Cascade Running Shoes,Apparel,West,3,6957
+ORD0127,2026-09-03,AuroraBook Pro 14,Electronics,North,3,140818
+ORD0128,2026-09-01,AuroraBook Pro 14,Electronics,North,2,93115
+ORD0129,2026-09-22,Orbit Bluetooth Speaker,Electronics,South,2,5613
+ORD0130,2026-09-25,Zenith Wireless Earbuds,Electronics,South,4,10209
+ORD0131,2026-10-04,Nimbus Office Chair,Furniture,North,2,17254
+ORD0132,2026-10-13,Orbit Bluetooth Speaker,Electronics,North,3,9956
+ORD0133,2026-10-27,Pulse Smartwatch,Electronics,South,1,9130
+ORD0134,2026-10-22,Solace Desk Lamp,Furniture,North,6,7522
+ORD0135,2026-10-12,Orbit Bluetooth Speaker,Electronics,North,5,17600
+ORD0136,2026-10-17,Lumen LED Panel,Home,West,6,11584
+ORD0137,2026-10-04,Voyage Backpack 30L,Apparel,North,4,7456
+ORD0138,2026-10-15,Pulse Smartwatch,Electronics,East,6,59571
+ORD0139,2026-10-21,Nimbus Office Chair,Furniture,West,2,16205
+ORD0140,2026-10-24,Cascade Running Shoes,Apparel,West,4,8486
+ORD0141,2026-10-27,Orbit Bluetooth Speaker,Electronics,East,3,10762
+ORD0142,2026-10-15,Zenith Wireless Earbuds,Electronics,East,4,9129
+ORD0143,2026-10-11,Orbit Bluetooth Speaker,Electronics,West,3,8358
+ORD0144,2026-10-09,Nimbus Office Chair,Furniture,West,2,14483
+ORD0145,2026-11-07,Cascade Running Shoes,Apparel,East,5,10328
+ORD0146,2026-11-18,Zenith Wireless Earbuds,Electronics,South,6,16139
+ORD0147,2026-11-15,Solace Desk Lamp,Furniture,West,6,8278
+ORD0148,2026-11-23,AuroraBook Pro 14,Electronics,North,3,161692
+ORD0149,2026-11-16,Solace Desk Lamp,Furniture,East,6,7974
+ORD0150,2026-11-18,Lumen LED Panel,Home,East,4,10334
+ORD0151,2026-11-10,Voyage Backpack 30L,Apparel,East,6,11257
+ORD0152,2026-11-11,Cascade Running Shoes,Apparel,South,1,2582
+ORD0153,2026-11-16,Zenith Wireless Earbuds,Electronics,South,2,5064
+ORD0154,2026-11-10,Cascade Running Shoes,Apparel,East,1,2663
+ORD0155,2026-11-23,Solace Desk Lamp,Furniture,East,2,2441
+ORD0156,2026-11-02,Lumen LED Panel,Home,South,3,5826
+ORD0157,2026-11-21,Lumen LED Panel,Home,East,6,15289
+ORD0158,2026-11-16,Terra Ceramic Mug Set,Home,North,1,796
+ORD0159,2026-12-09,Terra Ceramic Mug Set,Home,East,2,2051
+ORD0160,2026-12-03,Terra Ceramic Mug Set,Home,North,1,873
+ORD0161,2026-12-19,Orbit Bluetooth Speaker,Electronics,North,2,7516
+ORD0162,2026-12-25,Cascade Running Shoes,Apparel,North,2,4959
+ORD0163,2026-12-15,Pulse Smartwatch,Electronics,South,5,55437
+ORD0164,2026-12-02,Cascade Running Shoes,Apparel,West,3,8573
+ORD0165,2026-12-09,Orbit Bluetooth Speaker,Electronics,North,2,8716
+ORD0166,2026-12-03,Zenith Wireless Earbuds,Electronics,South,2,5774
+ORD0167,2026-12-20,Nimbus Office Chair,Furniture,North,4,38618
+ORD0168,2026-12-23,Terra Ceramic Mug Set,Home,East,1,827
+ORD0169,2026-12-09,Cascade Running Shoes,Apparel,West,1,2957
+ORD0170,2026-12-08,Orbit Bluetooth Speaker,Electronics,South,4,14858
+ORD0171,2026-12-06,Nimbus Office Chair,Furniture,East,2,17080
+ORD0172,2026-12-23,Cascade Running Shoes,Apparel,East,4,9938
+ORD0173,2026-12-16,Cascade Running Shoes,Apparel,West,3,8401
